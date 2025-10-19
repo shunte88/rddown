@@ -1,0 +1,27 @@
+# Real-Debrid API (Bearer token). Override with ENV REALDEBRID_TOKEN.
+[realdebrid]
+token = "PUT_YOUR_RD_TOKEN_HERE"
+
+# Hosts to watch (exact host or base domain). Matching is case-insensitive.
+[monitor]
+poll_interval_ms = 700
+hosts = [
+  "nitroflare.com",
+  "clicknupload.one",
+  "katfile.com",
+  "rapidgator.net",
+  "mediafire.com",
+]
+
+# Download settings
+[download]
+dir = "./downloads"
+aria2c_path = "aria2c"  # full path if not on PATH
+# Extra args passed to aria2c (besides --dir and the URL). Adjust as desired.
+aria2c_args = [
+  "--max-connection-per-server=8",
+  "--split=8",
+  "--continue=true",
+  "--auto-file-renaming=true",
+  "--summary-interval=0"
+]
